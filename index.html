@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>RouteToAbroad · Instagram Month 1</title>
+<link rel="icon" href="brand/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+/* RouteToAbroad brand: Paper ground, Corridor Ink type, Route Blue as the one bold field. Hanken Grotesk stands in for PP Mori. */
+:root{--paper:#F4F2EC;--ink:#0B1533;--blue:#2142E6;--sky:#DCE4FF;--stone:#B9B6AD;--sub:#4b5268;--line:rgba(11,21,51,.12);--card:#FBFAF6;
+--f:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+.lab{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sub)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(244,242,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.bar img{height:34px;width:auto}
+.bar nav{display:flex;gap:4px;flex-wrap:wrap}
+.bar nav a{color:var(--ink);text-decoration:none;font-size:14px;padding:7px 12px;border-radius:999px}
+.bar nav a:hover{background:var(--sky)}
+@media (max-width:720px){.bar nav{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--blue);color:var(--paper)}
+.hero .wrap{position:relative;z-index:1;padding-block:72px 120px}
+.hero .lab{color:#c7d0fb}
+.hero h1{font-weight:600;font-size:clamp(40px,7vw,88px);letter-spacing:-.025em;line-height:.98;margin:14px 0 22px;max-width:12ch;text-wrap:balance}
+.hero p{font-size:clamp(17px,2vw,21px);max-width:56ch;margin:0;color:#e3e8fd}
+.hero svg.route{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto;z-index:0}
+.stats{display:flex;flex-wrap:wrap;gap:12px 40px;margin-top:42px}
+.stats div{display:flex;flex-direction:column}
+.stats b{font-size:44px;font-weight:600;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.stats span{font-size:13px;color:#c7d0fb;margin-top:6px}
+
+section.block{padding-block:80px 20px}
+h2{font-weight:600;font-size:clamp(30px,4.4vw,52px);letter-spacing:-.02em;line-height:1.02;margin:10px 0 14px;text-wrap:balance}
+.intro{color:var(--sub);font-size:18px;max-width:60ch;margin:0}
+
+/* profile */
+.profile{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:56px;align-items:start;margin-top:40px}
+@media (max-width:900px){.profile{grid-template-columns:1fr}}
+.phone{background:#fff;border-radius:44px;padding:12px;box-shadow:0 0 0 1px var(--line),0 40px 80px -30px rgba(11,21,51,.35);max-width:400px;width:100%;margin:0 auto}
+.screen{border-radius:34px;overflow:hidden;background:#fff;color:#111}
+.ighead{display:flex;justify-content:center;font-weight:600;font-size:15px;padding:14px 0 10px}
+.igtop{display:flex;align-items:center;gap:18px;padding:4px 16px 0}
+.igtop img{width:80px;height:80px;border-radius:50%}
+.igstats{display:flex;gap:18px;font-size:13px;text-align:center}.igstats b{display:block;font-size:16px}
+.igbio{font-size:13.5px;line-height:1.4;padding:10px 16px 0}.igbio b{font-size:14px}.igbio .cat{color:#737373}.igbio a{color:#00376b;text-decoration:none;font-weight:500}
+.igbtns{display:flex;gap:6px;padding:12px 16px 0}.igbtns span{flex:1;text-align:center;font-size:13px;font-weight:600;background:#efefef;border-radius:8px;padding:7px 0}
+.igbtns span:first-child{background:#0095f6;color:#fff}
+.hls{display:flex;gap:14px;padding:14px 16px;overflow-x:auto}
+.hl{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:11.5px;flex:none}
+.hl img{width:62px;height:62px;border-radius:50%;padding:3px;border:1px solid #dbdbdb;background:#fff}
+.tabs{display:flex;border-top:1px solid #efefef}.tabs span{flex:1;display:grid;place-items:center;height:42px}.tabs span:first-child{border-bottom:1.5px solid #111}
+.tabs svg{width:20px;height:20px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.tile{position:relative;aspect-ratio:3/4;padding:0;border:0;background:#eee;cursor:pointer;overflow:hidden}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.tile:hover img{transform:scale(1.04)}
+.ti{position:absolute;top:6px;right:6px;width:18px;height:18px;color:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}
+.ti svg{width:18px;height:18px}
+.ptext{display:grid;gap:18px}
+.pt{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 24px}
+.pt h4{margin:0 0 6px;font-size:18px;font-weight:600}.pt p{margin:0;color:var(--sub)}
+.pt.blue{background:var(--ink);color:var(--paper);border-color:var(--ink)}.pt.blue p{color:#c8cde0}
+.pt .bio{font-size:15px;color:var(--ink);line-height:1.55}
+.hlrow{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}.hlrow img{width:56px;height:56px;border-radius:50%}
+
+/* launch timeline */
+.launch{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:36px}
+@media (max-width:900px){.launch{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:520px){.launch{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ld{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.ld.go{background:var(--blue);color:var(--paper);border-color:var(--blue)}
+.ld .d{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--sub)}.ld.go .d{color:#c7d0fb}
+.ld b{font-weight:600;font-size:17px;line-height:1.2}.ld span{font-size:14px;color:var(--sub)}.ld.go span{color:#e3e8fd}
+
+/* stories */
+.stories{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:56px;align-items:center;margin-top:36px}
+@media (max-width:900px){.stories{grid-template-columns:1fr}}
+.sphone{position:relative;aspect-ratio:9/16;max-width:340px;width:100%;margin:0 auto;border-radius:36px;overflow:hidden;background:#000;box-shadow:0 40px 80px -30px rgba(11,21,51,.45);user-select:none}
+.sphone img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sbars{position:absolute;top:12px;left:12px;right:12px;display:flex;gap:4px;z-index:3}
+.sbars i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.4);overflow:hidden}
+.sbars i b{display:block;height:100%;width:0;background:#fff}
+.suser{position:absolute;top:24px;left:14px;z-index:3;display:flex;align-items:center;gap:8px;color:#fff;font-size:13px;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.4)}
+.suser img{position:static;width:30px;height:30px;border-radius:50%}
+.stap{position:absolute;top:0;bottom:0;width:40%;z-index:4;border:0;background:transparent;cursor:pointer}
+.stap.l{left:0}.stap.r{right:0;width:60%}
+.slist{display:grid;gap:10px}
+.si{display:flex;gap:14px;align-items:center;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 14px;cursor:pointer}
+.si img{width:44px;aspect-ratio:9/16;border-radius:6px;object-fit:cover}
+.si.on{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue)}
+.si b{display:block;font-weight:600}.si span{color:var(--sub);font-size:14px}
+
+/* calendar */
+.week{margin-top:56px}
+.whead{display:flex;justify-content:space-between;align-items:end;gap:20px 40px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:16px;margin-bottom:22px}
+.whead h3{margin:6px 0 0;font-weight:600;font-size:28px;letter-spacing:-.02em}.whead p{margin:0;color:var(--sub);max-width:52ch}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+.card{display:flex;flex-direction:column;text-align:left;border:0;padding:0;background:transparent;cursor:pointer}
+.cimg{position:relative;display:block;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#e9e7e0;box-shadow:0 0 0 1px var(--line)}
+.cimg img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.card:hover .cimg img{transform:scale(1.03)}
+.ctype{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;background:rgba(11,21,51,.72);color:#fff;display:grid;place-items:center}
+.ctype svg{width:16px;height:16px}
+.cbody{display:flex;flex-direction:column;gap:4px;padding:12px 2px 0}
+.cday{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--sub)}
+.ctitle{font-weight:600;font-size:17px;line-height:1.25;letter-spacing:-.01em}
+.cmeta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--sub);margin-top:4px}
+.tag{background:var(--sky);color:var(--ink);border-radius:999px;padding:2px 10px}
+.tag-pin{background:var(--ink);color:var(--paper);border-radius:999px;padding:2px 10px}
+
+/* needs */
+.needs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:32px}
+.need{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px}
+.need b{display:block;font-size:17px;margin-bottom:6px}.need p{margin:0;color:var(--sub);font-size:15px}
+.need .n{font-size:13px;color:var(--blue);font-weight:600;letter-spacing:.1em;margin-bottom:10px;display:block}
+footer{margin-top:100px;background:var(--ink);color:var(--paper)}
+footer .wrap{padding-block:48px 56px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:end}
+footer p{margin:0;color:#c8cde0;font-size:14px}footer b{font-size:22px;font-weight:600;letter-spacing:-.01em}
+
+/* viewer */
+.vw{position:fixed;inset:0;z-index:50;background:rgba(6,10,24,.86);display:none;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+.vw.open{display:flex}
+.vbox{display:flex;background:#fff;border-radius:16px;overflow:hidden;max-height:calc(100vh - 40px);max-width:1000px;width:auto}
+.vmedia{position:relative;background:#000;flex:0 0 auto;width:min(560px,calc((100vh - 40px)*.8));display:flex;align-items:center;justify-content:center;overflow:hidden;min-width:0}
+.vmedia.vert{width:min(400px,calc((100vh - 40px)*.5625))}
+.track{display:flex;width:100%;transition:transform .45s cubic-bezier(.2,.7,.2,1);touch-action:pan-y}
+.track img{width:100%;flex:none;aspect-ratio:4/5;object-fit:cover;user-select:none;-webkit-user-drag:none}
+.vmedia video{width:100%;aspect-ratio:9/16;display:block;background:#000}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:var(--ink);display:grid;place-items:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.nav[hidden]{display:none}.nav.p{left:12px}.nav.n{right:12px}.nav svg{width:18px;height:18px}
+.dots{position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:center;gap:5px}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.5)}.dots i.on{background:#fff}
+.scount{position:absolute;top:12px;right:12px;background:rgba(11,21,51,.7);color:#fff;font-size:12px;border-radius:999px;padding:3px 10px}
+.vside{display:flex;flex-direction:column;min-width:0;flex:1 1 360px;max-width:440px;color:#111}
+.vh{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid #efefef}
+.vh img{width:34px;height:34px;border-radius:50%}.vh b{font-size:14px}.vh span{display:block;font-size:12px;color:#737373}
+.vcap{padding:16px;overflow:auto;flex:1;font-size:14.5px;line-height:1.5;white-space:pre-wrap}
+.vcap .h{color:#00376b}
+.vfoot{border-top:1px solid #efefef;padding:12px 16px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.vfoot .meta{font-size:12.5px;color:#737373}
+.copy{border:1px solid var(--ink);background:#fff;border-radius:999px;padding:7px 14px;font-size:13px;cursor:pointer}
+.close{position:fixed;top:max(14px,env(safe-area-inset-top));right:max(14px,env(safe-area-inset-right));width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:24px;cursor:pointer;z-index:51}
+.vprev,.vnext{position:fixed;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;cursor:pointer;z-index:51;display:grid;place-items:center}
+.vprev{left:max(10px,env(safe-area-inset-left))}.vnext{right:max(10px,env(safe-area-inset-right))}.vprev svg,.vnext svg{width:20px;height:20px}
+@media (max-width:900px){
+ .vw{align-items:flex-start;overflow:auto;padding-top:64px}
+ .vbox{flex-direction:column;max-height:none;border-radius:14px}
+ .vmedia,.vmedia.vert{width:100%}.vmedia.vert{max-width:420px;margin:0 auto}
+ .vside{width:100%;max-width:none;flex:none}.vprev,.vnext{display:none}
+ .vbox{width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style></head>
+<body>
+<header class="bar"><div class="wrap"><img src="brand/logo.svg" alt="RouteToAbroad">
+<nav aria-label="Sections"><a href="#profile">Profile</a><a href="#launch">Launch week</a><a href="#stories">Stories</a><a href="#calendar">Content calendar</a><a href="#next">Next steps</a></nav></div></header>
+
+<div class="hero"><div class="wrap">
+  <div class="lab">Instagram · Month 1 · For approval</div>
+  <h1>From coming soon to a full feed.</h1>
+  <p>The first month of RouteToAbroad on Instagram, built on the new brand book: Paper, Ink and Route Blue, one route line per layout, and the paper plane at the end of it. Tap any post to see it the way followers will.</p>
+  <div class="stats"><div><b>20</b><span>posts</span></div><div><b>7</b><span>Reels</span></div><div><b>7</b><span>carousels</span></div>
+  <div><b>6</b><span>single posts</span></div><div><b>5</b><span>launch Stories</span></div><div><b>5</b><span>highlight covers</span></div></div>
+</div>
+<svg class="route" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M-10 96 L 420 96 C 600 96 640 40 820 40 L 1450 40" fill="none" stroke="#F4F2EC" stroke-width="22"/></svg>
+</div>
+
+<main class="wrap">
+<section class="block" id="profile">
+  <div class="lab">The profile</div><h2>What people see when they land on the page.</h2>
+  <p class="intro">The app-icon profile picture, a short bio and five highlights. The top row is three pinned posts that join into one route.</p>
+  <div class="profile">
+    <div class="phone"><div class="screen">
+      <div class="ighead">routetoabroad</div>
+      <div class="igtop"><img src="brand/avatar.jpg" alt="RouteToAbroad profile picture">
+        <div class="igstats"><div><b>20</b>posts</div><div><b>·</b>followers</div><div><b>·</b>following</div></div></div>
+      <div class="igbio"><b>RouteToAbroad</b><br><span class="cat">Education consultant</span><br>India ⇄ China &amp; Japan<br>Study · Travel · Trade<br>New Delhi + Guangzhou, one accountable team<br>Full cost before you pay. Ask us anything.<br><a href="https://routetoabroad.com" target="_blank" rel="noopener">routetoabroad.com</a></div>
+      <div class="igbtns"><span>Follow</span><span>Message</span><span>Contact</span></div>
+      <div class="hls"><div class="hl"><img src="brand/hl-1.jpg" alt="">MBBS</div><div class="hl"><img src="brand/hl-2.jpg" alt="">CSC</div><div class="hl"><img src="brand/hl-3.jpg" alt="">Visa</div><div class="hl"><img src="brand/hl-4.jpg" alt="">日本</div><div class="hl"><img src="brand/hl-5.jpg" alt="">Trade</div></div>
+      <div class="tabs"><span><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM9 3v18M15 3v18M3 9h18M3 15h18" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9v6l5-3z" fill="currentColor"/></svg></span><span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 18c1-3 9-3 10 0" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
+      <div class="grid"><button class="tile" data-open="w1-p3-grid-left" aria-label="Open One corridor, done properly."><img src="img/w1-p3-grid-left-01.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3l7 7-3 1-4 4 1 5-2 1-4-5-5 5-1-1 5-5-5-4 1-2 5 1 4-4z" fill="currentColor"/></svg></span></button><button class="tile" data-open="w1-p2-grid-middle" aria-label="Open Two offices. One accountable team."><img src="img/w1-p2-grid-middle-01.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3l7 7-3 1-4 4 1 5-2 1-4-5-5 5-1-1 5-5-5-4 1-2 5 1 4-4z" fill="currentColor"/></svg></span></button><button class="tile" data-open="w1-p1-grid-right" aria-label="Open We know the way."><img src="img/w1-p1-grid-right-01.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3l7 7-3 1-4 4 1 5-2 1-4-5-5 5-1-1 5-5-5-4 1-2 5 1 4-4z" fill="currentColor"/></svg></span></button><button class="tile" data-open="w4-p20-myth-fact" aria-label="Open Myth vs fact: the internship"><img src="img/w4-p20-myth-fact-01.jpg" alt="" loading="lazy"><span class="ti"></span></button><button class="tile" data-open="r7-canton-fair" aria-label="Open Canton Fair 2027 starts now"><img src="reel/r7-canton-fair.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9v6l5-3z" fill="currentColor"/></svg></span></button><button class="tile" data-open="w4-p18-beijing-5-days" aria-label="Open Beijing in 5 days"><img src="img/w4-p18-beijing-5-days-01.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="13" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7v11.5A2.5 2.5 0 0 0 6.5 21H16" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></button><button class="tile" data-open="r6-upi-china" aria-label="Open Your UPI won&#x27;t work in China"><img src="reel/r6-upi-china.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9v6l5-3z" fill="currentColor"/></svg></span></button><button class="tile" data-open="w3-p16-ask-us" aria-label="Open Ask us anything"><img src="img/w3-p16-ask-us-01.jpg" alt="" loading="lazy"><span class="ti"></span></button><button class="tile" data-open="w3-p15-sourcing-agent" aria-label="Open Ask your sourcing agent these 5"><img src="img/w3-p15-sourcing-agent-01.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="13" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7v11.5A2.5 2.5 0 0 0 6.5 21H16" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></button><button class="tile" data-open="r5-japan" aria-label="Open Japan, with a guide who speaks both"><img src="reel/r5-japan.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9v6l5-3z" fill="currentColor"/></svg></span></button><button class="tile" data-open="w3-p13-first-week-china" aria-label="Open Your first week in China"><img src="img/w3-p13-first-week-china-01.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="13" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7v11.5A2.5 2.5 0 0 0 6.5 21H16" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></button><button class="tile" data-open="r4-hsk-4" aria-label="Open HSK-4 in 20 seconds"><img src="reel/r4-hsk-4.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9v6l5-3z" fill="currentColor"/></svg></span></button><button class="tile" data-open="w2-p11-csc-scholarship" aria-label="Open CSC scholarship: read this first"><img src="img/w2-p11-csc-scholarship-01.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="13" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7v11.5A2.5 2.5 0 0 0 6.5 21H16" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></button><button class="tile" data-open="w2-p10-full-cost" aria-label="Open The full cost, in writing"><img src="img/w2-p10-full-cost-01.jpg" alt="" loading="lazy"><span class="ti"></span></button><button class="tile" data-open="r3-nmc-approved" aria-label="Open &quot;NMC approved&quot;: what it really means"><img src="reel/r3-nmc-approved.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9v6l5-3z" fill="currentColor"/></svg></span></button><button class="tile" data-open="w2-p8-nmc-rules" aria-label="Open Read NMC&#x27;s rules before you pay"><img src="img/w2-p8-nmc-rules-01.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="13" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7v11.5A2.5 2.5 0 0 0 6.5 21H16" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></button><button class="tile" data-open="w1-p7-were-live" aria-label="Open We&#x27;re live: what this page is for"><img src="img/w1-p7-were-live-01.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="13" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7v11.5A2.5 2.5 0 0 0 6.5 21H16" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></button><button class="tile" data-open="r2-two-offices" aria-label="Open Delhi to Guangzhou"><img src="reel/r2-two-offices.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9v6l5-3z" fill="currentColor"/></svg></span></button><button class="tile" data-open="w1-p5-three-desks" aria-label="Open Three desks. One route."><img src="img/w1-p5-three-desks-01.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="13" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7v11.5A2.5 2.5 0 0 0 6.5 21H16" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></button><button class="tile" data-open="r1-teaser" aria-label="Open Teaser: the route takes off"><img src="reel/r1-teaser.jpg" alt="" loading="lazy"><span class="ti"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9v6l5-3z" fill="currentColor"/></svg></span></button></div>
+    </div></div>
+    <div class="ptext">
+      <div class="pt blue"><h4>The pinned route</h4><p>On Day 1 we post three tiles and pin them. Together they draw one route from left to right across the top of the grid, ending in the plane. It stays there whatever we post next.</p></div>
+      <div class="pt"><h4>Bio</h4><p class="bio">RouteToAbroad<br>Education consultant<br>India ⇄ China &amp; Japan<br>Study · Travel · Trade<br>New Delhi + Guangzhou, one accountable team<br>Full cost before you pay. Ask us anything.<br>routetoabroad.com</p></div>
+      <div class="pt"><h4>Highlights</h4><p>MBBS, CSC, Visa, Japan and Trade, matching the brand book's Instagram page.</p>
+        <div class="hlrow"><img src="brand/hl-1.jpg" alt="MBBS highlight cover"><img src="brand/hl-2.jpg" alt="CSC highlight cover"><img src="brand/hl-3.jpg" alt="Visa highlight cover"><img src="brand/hl-4.jpg" alt="日本 highlight cover"><img src="brand/hl-5.jpg" alt="Trade highlight cover"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="launch">
+  <div class="lab">Launch week</div><h2>Six days from first post to live.</h2>
+  <p class="intro">Each day has one job. Tap a day to open its post.</p>
+  <div class="launch">
+    <button class="ld" data-open="w1-p1-grid-right"><span class="d">Day 1</span><b>Three pinned posts</b><span>The route appears across the top row.</span></button>
+    <button class="ld" data-open="r1-teaser"><span class="d">Day 2</span><b>Teaser Reel</b><span>The logo film, then study, travel and trade.</span></button>
+    <button class="ld" data-open="w1-p5-three-desks"><span class="d">Day 3</span><b>Three desks</b><span>Education, Travel, Trade. Story: 3 days.</span></button>
+    <button class="ld" data-open="r2-two-offices"><span class="d">Day 4</span><b>Delhi to Guangzhou</b><span>The plane flies the route. Story: 2 days.</span></button>
+    <div class="ld"><span class="d">Day 5</span><b>Stories only</b><span>"Tomorrow." Turn on notifications.</span></div>
+    <button class="ld go" data-open="w1-p7-were-live"><span class="d">Day 6</span><b>We're live</b><span>What this page is for, plus a question Story.</span></button>
+  </div>
+</section>
+
+<section class="block" id="stories">
+  <div class="lab">Stories</div><h2>The countdown to launch.</h2>
+  <p class="intro">Five Stories across launch week. Tap the right side of the phone to go forward and the left side to go back.</p>
+  <div class="stories">
+    <div class="sphone" id="sphone"><div class="sbars" id="sbars"></div>
+      <div class="suser"><img src="brand/avatar.jpg" alt="">routetoabroad</div>
+      <img id="simg" src="story/story-1.jpg" alt="Story">
+      <button class="stap l" id="sprev" aria-label="Previous story"></button><button class="stap r" id="snext" aria-label="Next story"></button></div>
+    <div class="slist" id="slist"><button class="si" data-s="0"><img src="story/story-1.jpg" alt=""><span><b>Day 3</b><span>3 days to go</span></span></button><button class="si" data-s="1"><img src="story/story-2.jpg" alt=""><span><b>Day 4</b><span>2 days to go</span></span></button><button class="si" data-s="2"><img src="story/story-3.jpg" alt=""><span><b>Day 5</b><span>Tomorrow</span></span></button><button class="si" data-s="3"><img src="story/story-4.jpg" alt=""><span><b>Day 6</b><span>We&#x27;re live, with a link sticker to the launch post</span></span></button><button class="si" data-s="4"><img src="story/story-5.jpg" alt=""><span><b>Day 6</b><span>Question sticker: what do you want to know?</span></span></button></div>
+  </div>
+</section>
+
+<section class="block" id="calendar">
+  <div class="lab">Content calendar</div><h2>Four weeks, twenty posts.</h2>
+  <p class="intro">Education leads, with Travel and Trade every week. Each carousel carries one route line across all its slides, ending in the plane on the last one.</p>
+  <section class="week" id="week-1"><div class="whead"><div><div class="lab">Week 1</div><h3>Coming soon, then launch day</h3></div><p>Three pinned posts build the route across the top of the profile. A Stories countdown runs into Day 6.</p></div><div class="cards"><button class="card" data-open="w1-p1-grid-right"><span class="cimg"><img src="img/w1-p1-grid-right-01.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></span><span class="cbody"><span class="cday">01 · Day 1 · morning</span><span class="ctitle">We know the way.</span><span class="cmeta"><span class="tag">Brand</span><span>Single image</span><span class=tag-pin>Pinned</span></span></span></button><button class="card" data-open="w1-p2-grid-middle"><span class="cimg"><img src="img/w1-p2-grid-middle-01.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></span><span class="cbody"><span class="cday">02 · Day 1 · afternoon</span><span class="ctitle">Two offices. One accountable team.</span><span class="cmeta"><span class="tag">Brand</span><span>Single image</span><span class=tag-pin>Pinned</span></span></span></button><button class="card" data-open="w1-p3-grid-left"><span class="cimg"><img src="img/w1-p3-grid-left-01.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></span><span class="cbody"><span class="cday">03 · Day 1 · evening</span><span class="ctitle">One corridor, done properly.</span><span class="cmeta"><span class="tag">Brand</span><span>Single image</span><span class=tag-pin>Pinned</span></span></span></button><button class="card" data-open="r1-teaser"><span class="cimg vert"><img src="reel/r1-teaser.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9v6l5-3z" fill="currentColor"/></svg></span></span><span class="cbody"><span class="cday">04 · Day 2</span><span class="ctitle">Teaser: the route takes off</span><span class="cmeta"><span class="tag">Brand</span><span>Reel</span></span></span></button><button class="card" data-open="w1-p5-three-desks"><span class="cimg"><img src="img/w1-p5-three-desks-01.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="13" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7v11.5A2.5 2.5 0 0 0 6.5 21H16" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></span><span class="cbody"><span class="cday">05 · Day 3</span><span class="ctitle">Three desks. One route.</span><span class="cmeta"><span class="tag">Brand</span><span>6 slides</span></span></span></button><button class="card" data-open="r2-two-offices"><span class="cimg vert"><img src="reel/r2-two-offices.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9v6l5-3z" fill="currentColor"/></svg></span></span><span class="cbody"><span class="cday">06 · Day 4</span><span class="ctitle">Delhi to Guangzhou</span><span class="cmeta"><span class="tag">Brand</span><span>Reel</span></span></span></button><button class="card" data-open="w1-p7-were-live"><span class="cimg"><img src="img/w1-p7-were-live-01.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="13" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7v11.5A2.5 2.5 0 0 0 6.5 21H16" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></span><span class="cbody"><span class="cday">07 · Day 6 · launch</span><span class="ctitle">We&#x27;re live: what this page is for</span><span class="cmeta"><span class="tag">Brand</span><span>5 slides</span></span></span></button></div></section><section class="week" id="week-2"><div class="whead"><div><div class="lab">Week 2</div><h3>Education first</h3></div><p>MBBS rules, the real cost and the CSC scholarship, in plain language.</p></div><div class="cards"><button class="card" data-open="w2-p8-nmc-rules"><span class="cimg"><img src="img/w2-p8-nmc-rules-01.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="13" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7v11.5A2.5 2.5 0 0 0 6.5 21H16" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></span><span class="cbody"><span class="cday">08 · Mon</span><span class="ctitle">Read NMC&#x27;s rules before you pay</span><span class="cmeta"><span class="tag">Education</span><span>8 slides</span></span></span></button><button class="card" data-open="r3-nmc-approved"><span class="cimg vert"><img src="reel/r3-nmc-approved.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9v6l5-3z" fill="currentColor"/></svg></span></span><span class="cbody"><span class="cday">09 · Wed</span><span class="ctitle">&quot;NMC approved&quot;: what it really means</span><span class="cmeta"><span class="tag">Education</span><span>Reel</span></span></span></button><button class="card" data-open="w2-p10-full-cost"><span class="cimg"><img src="img/w2-p10-full-cost-01.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></span><span class="cbody"><span class="cday">10 · Thu</span><span class="ctitle">The full cost, in writing</span><span class="cmeta"><span class="tag">Education</span><span>Single image</span></span></span></button><button class="card" data-open="w2-p11-csc-scholarship"><span class="cimg"><img src="img/w2-p11-csc-scholarship-01.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="13" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7v11.5A2.5 2.5 0 0 0 6.5 21H16" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></span><span class="cbody"><span class="cday">11 · Fri</span><span class="ctitle">CSC scholarship: read this first</span><span class="cmeta"><span class="tag">Education</span><span>8 slides</span></span></span></button><button class="card" data-open="r4-hsk-4"><span class="cimg vert"><img src="reel/r4-hsk-4.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9v6l5-3z" fill="currentColor"/></svg></span></span><span class="cbody"><span class="cday">12 · Sun</span><span class="ctitle">HSK-4 in 20 seconds</span><span class="cmeta"><span class="tag">Education</span><span>Reel</span></span></span></button></div></section><section class="week" id="week-3"><div class="whead"><div><div class="lab">Week 3</div><h3>Arrivals, Japan and trade</h3></div><p>The first week in China, the Travel desk's Japan basics and the Trade desk's sourcing checklist.</p></div><div class="cards"><button class="card" data-open="w3-p13-first-week-china"><span class="cimg"><img src="img/w3-p13-first-week-china-01.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="13" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7v11.5A2.5 2.5 0 0 0 6.5 21H16" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></span><span class="cbody"><span class="cday">13 · Mon</span><span class="ctitle">Your first week in China</span><span class="cmeta"><span class="tag">Education</span><span>8 slides</span></span></span></button><button class="card" data-open="r5-japan"><span class="cimg vert"><img src="reel/r5-japan.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9v6l5-3z" fill="currentColor"/></svg></span></span><span class="cbody"><span class="cday">14 · Wed</span><span class="ctitle">Japan, with a guide who speaks both</span><span class="cmeta"><span class="tag">Travel</span><span>Reel</span></span></span></button><button class="card" data-open="w3-p15-sourcing-agent"><span class="cimg"><img src="img/w3-p15-sourcing-agent-01.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="13" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7v11.5A2.5 2.5 0 0 0 6.5 21H16" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></span><span class="cbody"><span class="cday">15 · Fri</span><span class="ctitle">Ask your sourcing agent these 5</span><span class="cmeta"><span class="tag">Trade</span><span>8 slides</span></span></span></button><button class="card" data-open="w3-p16-ask-us"><span class="cimg"><img src="img/w3-p16-ask-us-01.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></span><span class="cbody"><span class="cday">16 · Sat</span><span class="ctitle">Ask us anything</span><span class="cmeta"><span class="tag">Brand</span><span>Single image</span></span></span></button></div></section><section class="week" id="week-4"><div class="whead"><div><div class="lab">Week 4</div><h3>Travel and Canton Fair</h3></div><p>Payments in China, Beijing in five days and planning for Canton Fair 2027.</p></div><div class="cards"><button class="card" data-open="r6-upi-china"><span class="cimg vert"><img src="reel/r6-upi-china.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9v6l5-3z" fill="currentColor"/></svg></span></span><span class="cbody"><span class="cday">17 · Mon</span><span class="ctitle">Your UPI won&#x27;t work in China</span><span class="cmeta"><span class="tag">Travel</span><span>Reel</span></span></span></button><button class="card" data-open="w4-p18-beijing-5-days"><span class="cimg"><img src="img/w4-p18-beijing-5-days-01.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="13" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7v11.5A2.5 2.5 0 0 0 6.5 21H16" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></span><span class="cbody"><span class="cday">18 · Wed</span><span class="ctitle">Beijing in 5 days</span><span class="cmeta"><span class="tag">Travel</span><span>8 slides</span></span></span></button><button class="card" data-open="r7-canton-fair"><span class="cimg vert"><img src="reel/r7-canton-fair.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9v6l5-3z" fill="currentColor"/></svg></span></span><span class="cbody"><span class="cday">19 · Fri</span><span class="ctitle">Canton Fair 2027 starts now</span><span class="cmeta"><span class="tag">Trade</span><span>Reel</span></span></span></button><button class="card" data-open="w4-p20-myth-fact"><span class="cimg"><img src="img/w4-p20-myth-fact-01.jpg" alt="" loading="lazy"><span class="ctype"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></span><span class="cbody"><span class="cday">20 · Sun</span><span class="ctitle">Myth vs fact: the internship</span><span class="cmeta"><span class="tag">Education</span><span>Single image</span></span></span></button></div></section>
+</section>
+
+<section class="block" id="next">
+  <div class="lab">Before we post</div><h2>Four things we need from you.</h2>
+  <div class="needs">
+    <div class="need"><span class="n">01</span><b>PP Mori licence</b><p>The brand typeface. These previews use Hanken Grotesk, its closest free match, and we swap in PP Mori once it's licensed.</p></div>
+    <div class="need"><span class="n">02</span><b>Handle and launch date</b><p>The final Instagram handle and the day you want to go live. Launch week runs six days from Day 1.</p></div>
+    <div class="need"><span class="n">03</span><b>Proof for the numbers</b><p>500+ students, 98% visa success, since 2012. We'll show them once we have proof to back them.</p></div>
+    <div class="need"><span class="n">04</span><b>Real photos for Month 2</b><p>Phone photos and clips from Delhi and Guangzhou: students, arrivals, the office. The brand book asks for real people, so we didn't use stock.</p></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><div><b>We know the way.</b><p style="margin-top:8px">Prepared for RouteToAbroad by Madnis Media · Instagram Month 1 preview</p></div>
+<p>Education facts follow NMC's FMGL Regulations 2021 and published CSC rates.<br>Please have your team check them before we post.</p></div></footer>
+
+<div class="vw" id="vw" role="dialog" aria-modal="true" aria-label="Post preview">
+  <button class="close" id="vclose" aria-label="Close">×</button>
+  <button class="vprev" id="vprevp" aria-label="Previous post"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></button>
+  <button class="vnext" id="vnextp" aria-label="Next post"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></button>
+  <div class="vbox"><div class="vmedia" id="vmedia"></div>
+    <div class="vside"><div class="vh"><img src="brand/avatar.jpg" alt=""><div><b>routetoabroad</b><span id="vsub"></span></div></div>
+      <div class="vcap" id="vcap"></div>
+      <div class="vfoot"><span class="meta" id="vmeta"></span><button class="copy" id="vcopy">Copy caption</button></div></div></div>
+</div>
+
+<script>
+const DATA = {"posts": [{"id": "w1-p1-grid-right", "week": 1, "day": "Day 1 · morning", "type": "Single", "desk": "Brand", "title": "We know the way.", "caption": "We know the way.\n\nA new home for study, travel and trade between India, China and Japan. Run by one team with offices in New Delhi and Guangzhou.\n\nFollow along. We open properly this week.\n\n#RouteToAbroad #StudyInChina #StudyInJapan", "pin": true, "slides": ["img/w1-p1-grid-right-01.jpg"], "thumb": "img/w1-p1-grid-right-01.jpg"}, {"id": "w1-p2-grid-middle", "week": 1, "day": "Day 1 · afternoon", "type": "Single", "desk": "Brand", "title": "Two offices. One accountable team.", "caption": "Two offices. One accountable team.\n\nOur Delhi desk sits in Saket District Centre. Our China desk is in Tianhe, Guangzhou. The same people answer for your file at both ends.\n\n#RouteToAbroad #IndiaChina #Guangzhou", "pin": true, "slides": ["img/w1-p2-grid-middle-01.jpg"], "thumb": "img/w1-p2-grid-middle-01.jpg"}, {"id": "w1-p3-grid-left", "week": 1, "day": "Day 1 · evening", "type": "Single", "desk": "Brand", "title": "One corridor, done properly.", "caption": "One corridor, done properly.\n\nIndia to China and Japan, for students, travellers and businesses. Launching on this page soon.\n\n#RouteToAbroad #StudyAbroad #ImportFromChina", "pin": true, "slides": ["img/w1-p3-grid-left-01.jpg"], "thumb": "img/w1-p3-grid-left-01.jpg"}, {"id": "r1-teaser", "week": 1, "day": "Day 2", "type": "Reel", "desk": "Brand", "title": "Teaser: the route takes off", "caption": "Study. Travel. Trade.\n\nOne corridor between India, China and Japan, done properly. We know the way.\n\nTurn on notifications so you see launch day first.\n\n#RouteToAbroad #StudyInChina #ChinaTravel", "pin": false, "video": "reel/r1-teaser.mp4", "thumb": "reel/r1-teaser.jpg"}, {"id": "w1-p5-three-desks", "week": 1, "day": "Day 3", "type": "Carousel", "desk": "Brand", "title": "Three desks. One route.", "caption": "Three desks. One route.\n\nEducation: university placement in China and Japan, scholarships, MBBS and engineering, visas and arrival support.\nTravel: private and group trips with bilingual guides and a 24/7 desk.\nTrade: India–China sourcing, factory audits, inspection, customs and freight.\n\nWhich desk do you need first? Tell us in the comments.\n\n#RouteToAbroad #StudyInChina #ImportFromChina", "pin": false, "slides": ["img/w1-p5-three-desks-01.jpg", "img/w1-p5-three-desks-02.jpg", "img/w1-p5-three-desks-03.jpg", "img/w1-p5-three-desks-04.jpg", "img/w1-p5-three-desks-05.jpg", "img/w1-p5-three-desks-06.jpg"], "thumb": "img/w1-p5-three-desks-01.jpg"}, {"id": "r2-two-offices", "week": 1, "day": "Day 4", "type": "Reel", "desk": "Brand", "title": "Delhi to Guangzhou", "caption": "About 3,600 km and two and a half hours apart.\n\nOne desk in Saket District Centre, New Delhi. One in Tianhe, Guangzhou. Someone at both ends of the route, so nothing gets lost in between.\n\n#RouteToAbroad #NewDelhi #Guangzhou", "pin": false, "video": "reel/r2-two-offices.mp4", "thumb": "reel/r2-two-offices.jpg"}, {"id": "w1-p7-were-live", "week": 1, "day": "Day 6 · launch", "type": "Carousel", "desk": "Brand", "title": "We're live: what this page is for", "caption": "We're live.\n\nHere's what you'll find on this page: the full cost before you pay, the rules straight from the source, and both ends of the route as they really are.\n\nWhat should we answer first? Ask in the comments or send us a DM.\n\n#RouteToAbroad #StudyInChina #StudyInJapan #MBBSinChina", "pin": false, "slides": ["img/w1-p7-were-live-01.jpg", "img/w1-p7-were-live-02.jpg", "img/w1-p7-were-live-03.jpg", "img/w1-p7-were-live-04.jpg", "img/w1-p7-were-live-05.jpg"], "thumb": "img/w1-p7-were-live-01.jpg"}, {"id": "w2-p8-nmc-rules", "week": 2, "day": "Mon", "type": "Carousel", "desk": "Education", "title": "Read NMC's rules before you pay", "caption": "Thinking about MBBS abroad? Read NMC's rules before you pay anyone.\n\nIndia's National Medical Commission checks every foreign medical degree against its 2021 regulations: English medium every year, 54 months plus a 12-month internship at the same university, and a licence to practise in that country. Then the exam and 12 more months in India.\n\nSend us any university name and we'll check it against the rules.\n\n#MBBSinChina #NMC #NEET2027 #MBBSAbroad", "pin": false, "slides": ["img/w2-p8-nmc-rules-01.jpg", "img/w2-p8-nmc-rules-02.jpg", "img/w2-p8-nmc-rules-03.jpg", "img/w2-p8-nmc-rules-04.jpg", "img/w2-p8-nmc-rules-05.jpg", "img/w2-p8-nmc-rules-06.jpg", "img/w2-p8-nmc-rules-07.jpg", "img/w2-p8-nmc-rules-08.jpg"], "thumb": "img/w2-p8-nmc-rules-01.jpg"}, {"id": "r3-nmc-approved", "week": 2, "day": "Wed", "type": "Reel", "desk": "Education", "title": "\"NMC approved\": what it really means", "caption": "Your agent says the university is \"NMC approved\". Ask to see the list.\n\nThere isn't one. NMC sets rules, and every foreign degree is checked against them.\n\nDM us any university name and we'll tell you what we know.\n\n#MBBSinChina #NMC #NEET2027", "pin": false, "video": "reel/r3-nmc-approved.mp4", "thumb": "reel/r3-nmc-approved.jpg"}, {"id": "w2-p10-full-cost", "week": 2, "day": "Thu", "type": "Single", "desk": "Education", "title": "The full cost, in writing", "caption": "Before you pay anything, ask for the full cost in writing.\n\nTuition for every year. Hostel and food. Medical insurance. Visa and residence permit. Flights and arrival.\n\nAsk us, or anyone you're talking to. If they won't write it down, that's your answer.\n\n#MBBSinChina #StudyAbroad #StudyInChina", "pin": false, "slides": ["img/w2-p10-full-cost-01.jpg"], "thumb": "img/w2-p10-full-cost-01.jpg"}, {"id": "w2-p11-csc-scholarship", "week": 2, "day": "Fri", "type": "Carousel", "desk": "Education", "title": "CSC scholarship: read this first", "caption": "Free study in China? Yes, the CSC scholarship is real. Fully funded MBBS seats are rare, though.\n\nWhat it covers, what it pays each month, the two ways in and the documents to start collecting now. Most deadlines fall between January and April for a September start.\n\nSave this for application season, and DM us your course.\n\n#CSCScholarship #StudyInChina #Scholarships", "pin": false, "slides": ["img/w2-p11-csc-scholarship-01.jpg", "img/w2-p11-csc-scholarship-02.jpg", "img/w2-p11-csc-scholarship-03.jpg", "img/w2-p11-csc-scholarship-04.jpg", "img/w2-p11-csc-scholarship-05.jpg", "img/w2-p11-csc-scholarship-06.jpg", "img/w2-p11-csc-scholarship-07.jpg", "img/w2-p11-csc-scholarship-08.jpg"], "thumb": "img/w2-p11-csc-scholarship-01.jpg"}, {"id": "r4-hsk-4", "week": 2, "day": "Sun", "type": "Reel", "desk": "Education", "title": "HSK-4 in 20 seconds", "caption": "Your classes are in English. Your patients won't be.\n\nHSK is China's Chinese-language test, and many universities expect level 4 before clinical years. Start in year one, not year four.\n\nCheck the exact requirement with your university.\n\n#MBBSinChina #HSK #LearnChinese", "pin": false, "video": "reel/r4-hsk-4.mp4", "thumb": "reel/r4-hsk-4.jpg"}, {"id": "w3-p13-first-week-china", "week": 3, "day": "Mon", "type": "Carousel", "desk": "Education", "title": "Your first week in China", "caption": "Landing in China this year? The first 30 days have deadlines most students hear about too late.\n\nSIM on day one. Address registered within 24 hours. Medical check in week one. Residence permit within 30 days. Bank card linked to Alipay and WeChat Pay.\n\nSend this to someone flying soon.\n\n#StudyInChina #MBBSinChina #IndianStudentsAbroad", "pin": false, "slides": ["img/w3-p13-first-week-china-01.jpg", "img/w3-p13-first-week-china-02.jpg", "img/w3-p13-first-week-china-03.jpg", "img/w3-p13-first-week-china-04.jpg", "img/w3-p13-first-week-china-05.jpg", "img/w3-p13-first-week-china-06.jpg", "img/w3-p13-first-week-china-07.jpg", "img/w3-p13-first-week-china-08.jpg"], "thumb": "img/w3-p13-first-week-china-01.jpg"}, {"id": "r5-japan", "week": 3, "day": "Wed", "type": "Reel", "desk": "Travel", "title": "Japan, with a guide who speaks both", "caption": "First trip to Japan? Sort these three before you land.\n\nAn IC card for trains (Suica or ICOCA). Some cash for smaller places. And price the JR Pass against your actual route before you buy it.\n\nPrivate and group trips with bilingual guides. DM our Travel desk.\n\n#JapanTravel #IndiansInJapan #JapanTrip", "pin": false, "video": "reel/r5-japan.mp4", "thumb": "reel/r5-japan.jpg"}, {"id": "w3-p15-sourcing-agent", "week": 3, "day": "Fri", "type": "Carousel", "desk": "Trade", "title": "Ask your sourcing agent these 5", "caption": "Importing from China? Ask these five before you wire a single rupee.\n\nWho pays the agent. Whether you can see the factory's business licence. Who inspects, and when. Who handles BIS and customs. And what happens if the goods fail.\n\nAsk us too. DM us what you're sourcing.\n\n#ImportFromChina #SourcingAgent #ChinaSourcing", "pin": false, "slides": ["img/w3-p15-sourcing-agent-01.jpg", "img/w3-p15-sourcing-agent-02.jpg", "img/w3-p15-sourcing-agent-03.jpg", "img/w3-p15-sourcing-agent-04.jpg", "img/w3-p15-sourcing-agent-05.jpg", "img/w3-p15-sourcing-agent-06.jpg", "img/w3-p15-sourcing-agent-07.jpg", "img/w3-p15-sourcing-agent-08.jpg"], "thumb": "img/w3-p15-sourcing-agent-01.jpg"}, {"id": "w3-p16-ask-us", "week": 3, "day": "Sat", "type": "Single", "desk": "Brand", "title": "Ask us anything", "caption": "Ask us anything.\n\nStudying, travelling or sourcing from China or Japan? Put your question in the comments. Our team in New Delhi and Guangzhou answers.\n\n#StudyInChina #ChinaTravel #ImportFromChina", "pin": false, "slides": ["img/w3-p16-ask-us-01.jpg"], "thumb": "img/w3-p16-ask-us-01.jpg"}, {"id": "r6-upi-china", "week": 4, "day": "Mon", "type": "Reel", "desk": "Travel", "title": "Your UPI won't work in China", "caption": "Your UPI won't work in China. Set these up before you fly.\n\nAlipay and WeChat Pay, both linked to your Visa or Mastercard. Some cash for day one. Do it at home on Wi-Fi, not at the airport.\n\nSave this for your trip.\n\n#ChinaTravel #Alipay #IndiansInChina", "pin": false, "video": "reel/r6-upi-china.mp4", "thumb": "reel/r6-upi-china.jpg"}, {"id": "w4-p18-beijing-5-days", "week": 4, "day": "Wed", "type": "Carousel", "desk": "Travel", "title": "Beijing in 5 days", "caption": "First time in Beijing? Five days, one route, no wasted mornings.\n\nBook the Forbidden City online with your passport before anything else. It's closed on Mondays.\n\nSave this for your trip, or DM our Travel desk to plan it.\n\n#BeijingTravel #ChinaTravel #IndiansInChina", "pin": false, "slides": ["img/w4-p18-beijing-5-days-01.jpg", "img/w4-p18-beijing-5-days-02.jpg", "img/w4-p18-beijing-5-days-03.jpg", "img/w4-p18-beijing-5-days-04.jpg", "img/w4-p18-beijing-5-days-05.jpg", "img/w4-p18-beijing-5-days-06.jpg", "img/w4-p18-beijing-5-days-07.jpg", "img/w4-p18-beijing-5-days-08.jpg"], "thumb": "img/w4-p18-beijing-5-days-01.jpg"}, {"id": "r7-canton-fair", "week": 4, "day": "Fri", "type": "Reel", "desk": "Trade", "title": "Canton Fair 2027 starts now", "caption": "Canton Fair 2027 starts now. The spring session runs from mid-April to early May in Guangzhou, in three phases.\n\nRegister as a buyer, get the invitation for your business visa, shortlist booths by product and book hotels near Pazhou early.\n\nOur Trade desk is in Guangzhou. DM us your product.\n\n#CantonFair #ImportFromChina #Guangzhou", "pin": false, "video": "reel/r7-canton-fair.mp4", "thumb": "reel/r7-canton-fair.jpg"}, {"id": "w4-p20-myth-fact", "week": 4, "day": "Sun", "type": "Single", "desk": "Education", "title": "Myth vs fact: the internship", "caption": "Heard you can do your MBBS internship back in India? Not under NMC's 2021 rules.\n\nThe 12-month internship has to be at the same university abroad. Then 12 more months of supervised internship in India.\n\nSave this and check any offer against it.\n\n#MBBSinChina #NMC #NEET2027", "pin": false, "slides": ["img/w4-p20-myth-fact-01.jpg"], "thumb": "img/w4-p20-myth-fact-01.jpg"}], "stories": [{"src": "story/story-1.jpg", "when": "Day 3", "note": "3 days to go"}, {"src": "story/story-2.jpg", "when": "Day 4", "note": "2 days to go"}, {"src": "story/story-3.jpg", "when": "Day 5", "note": "Tomorrow"}, {"src": "story/story-4.jpg", "when": "Day 6", "note": "We're live, with a link sticker to the launch post"}, {"src": "story/story-5.jpg", "when": "Day 6", "note": "Question sticker: what do you want to know?"}]};
+const P = DATA.posts, byId = Object.fromEntries(P.map((p,i)=>[p.id,i]));
+const order = P.map(p=>p.id);
+const vw=document.getElementById('vw'), vm=document.getElementById('vmedia'), vcap=document.getElementById('vcap');
+let cur=-1, slide=0, lastFocus=null;
+const chev = d => `<svg viewBox="0 0 24 24"><path d="${d}" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>`;
+function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function capHTML(t){return esc(t).replace(/(#[\w]+)/g,'<span class="h">$1</span>')}
+function open(id){
+  lastFocus=document.activeElement; cur=byId[id]; render(); vw.classList.add('open'); document.body.style.overflow='hidden';
+  document.getElementById('vclose').focus();
+}
+function close(){
+  const v=vm.querySelector('video'); if(v) v.pause();
+  vw.classList.remove('open'); document.body.style.overflow=''; if(lastFocus) lastFocus.focus();
+}
+function render(){
+  const p=P[cur]; slide=0;
+  document.getElementById('vsub').textContent = p.day + ' · ' + p.desk + ' desk';
+  const n = p.slides ? p.slides.length : 0;
+  document.getElementById('vmeta').textContent = p.type + (n>1 ? ' · '+n+' slides' : '') + (p.pin ? ' · pinned' : '');
+  vcap.innerHTML = capHTML(p.caption);
+  if(p.video){
+    vm.className='vmedia vert';
+    vm.innerHTML = `<video src="${p.video}" poster="${p.thumb}" controls playsinline preload="metadata"></video>`;
+    const v=vm.querySelector('video'); v.play().catch(()=>{});
+  } else {
+    vm.className='vmedia';
+    vm.innerHTML = `<div class="track" id="track">${p.slides.map((s,i)=>`<img src="${s}" alt="Slide ${i+1} of ${n}" draggable="false">`).join('')}</div>`
+      + (n>1 ? `<button class="nav p" id="sp" aria-label="Previous slide">${chev('M15 5l-7 7 7 7')}</button><button class="nav n" id="sn" aria-label="Next slide">${chev('M9 5l7 7-7 7')}</button>
+         <div class="dots" id="dots">${p.slides.map(()=>'<i></i>').join('')}</div><span class="scount" id="scount"></span>` : '');
+    if(n>1){
+      document.getElementById('sp').onclick=()=>go(slide-1); document.getElementById('sn').onclick=()=>go(slide+1);
+      swipe(document.getElementById('track'));
+    }
+    go(0);
+  }
+}
+function go(i){
+  const p=P[cur]; if(!p.slides) return; const n=p.slides.length; slide=Math.max(0,Math.min(n-1,i));
+  const t=document.getElementById('track'); t.style.transform=`translateX(${-slide*100}%)`;
+  if(n>1){
+    document.getElementById('sp').hidden = slide===0; document.getElementById('sn').hidden = slide===n-1;
+    document.querySelectorAll('#dots i').forEach((d,k)=>d.classList.toggle('on',k===slide));
+    document.getElementById('scount').textContent = (slide+1)+' / '+n;
+  }
+}
+function swipe(el){
+  let x0=null;
+  el.addEventListener('pointerdown',e=>{x0=e.clientX});
+  el.addEventListener('pointerup',e=>{if(x0===null)return; const dx=e.clientX-x0; if(Math.abs(dx)>40) go(slide+(dx<0?1:-1)); x0=null});
+}
+function step(d){ const v=vm.querySelector('video'); if(v) v.pause(); cur=(cur+d+P.length)%P.length; render(); }
+document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>open(b.dataset.open)));
+document.getElementById('vclose').onclick=close;
+document.getElementById('vprevp').onclick=()=>step(-1); document.getElementById('vnextp').onclick=()=>step(1);
+vw.addEventListener('click',e=>{if(e.target===vw) close()});
+document.addEventListener('keydown',e=>{
+  if(!vw.classList.contains('open')) return;
+  if(e.key==='Escape') close();
+  else if(e.key==='ArrowRight') { const p=P[cur]; if(p.slides && slide<p.slides.length-1) go(slide+1); else step(1); }
+  else if(e.key==='ArrowLeft') { const p=P[cur]; if(p.slides && slide>0) go(slide-1); else step(-1); }
+});
+document.getElementById('vcopy').addEventListener('click',e=>{
+  const b=e.currentTarget, t=P[cur].caption;
+  navigator.clipboard.writeText(t).then(()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy caption',1500)}).catch(()=>{
+    const r=document.createRange(); r.selectNodeContents(vcap); const s=getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent='Selected';
+  });
+});
+
+// stories player
+const S=DATA.stories, bars=document.getElementById('sbars'), simg=document.getElementById('simg');
+bars.innerHTML=S.map(()=>'<i><b></b></i>').join('');
+let si=0, t0=0, raf=0, paused=false, pausedAt=0; const DUR=5000;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function showS(i){
+  si=(i+S.length)%S.length; simg.src=S[si].src; t0=performance.now(); pausedAt=0;
+  bars.querySelectorAll('b').forEach((b,k)=>b.style.width = k<si ? '100%' : '0%');
+  document.querySelectorAll('.si').forEach((b,k)=>b.classList.toggle('on',k===si));
+}
+function tick(now){
+  if(!paused && !reduce){
+    const f=Math.min(1,(now-t0)/DUR); bars.querySelectorAll('b')[si].style.width=(f*100)+'%';
+    if(f>=1) showS(si+1);
+  }
+  raf=requestAnimationFrame(tick);
+}
+document.getElementById('snext').onclick=()=>showS(si+1);
+document.getElementById('sprev').onclick=()=>showS(si-1);
+document.querySelectorAll('.si').forEach(b=>b.addEventListener('click',()=>showS(+b.dataset.s)));
+const sp=document.getElementById('sphone');
+sp.addEventListener('pointerdown',()=>{paused=true;pausedAt=performance.now()});
+sp.addEventListener('pointerup',()=>{if(paused){t0+=performance.now()-pausedAt;paused=false}});
+sp.addEventListener('pointerleave',()=>{if(paused){t0+=performance.now()-pausedAt;paused=false}});
+showS(0); raf=requestAnimationFrame(tick);
+</script>
+</body></html>
